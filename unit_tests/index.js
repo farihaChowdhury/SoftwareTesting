@@ -18,24 +18,25 @@ const users = [
   ]
 
 describe('Add', () => {
-  describe('Add numbers', function () {
-    it('must return sum of two numbers', () => {
-      expect(4).to.be.deep.equal(add(3, 1));
-    });
+  it('must return sum of two numbers', () => {
+    expect(4).to.be.deep.equal(add(3, 1));
   });
 
-  describe('Add numbers', function () {
-    it('must return sum of one positive and one negative number', () => {
-      expect(-10).to.be.deep.equal(add(-15, 5));
-    });
+  it('must return sum of one positive and one negative number', () => {
+    expect(0).to.be.deep.equal(add(-2, 2));
   });
 
-  describe('Add numbers', function () {
-    it('must return sum of fraction numbers', () => {
-      expect(5.5).to.be.deep.equal(add(2, 3.5));
-    });
+  it('must return sum of two negative numbers', () => {
+    expect(-6.4).to.be.deep.equal(add(-3.2, -3.2));
   });
 
+  it('must return sum of undefined and positive numbers', () => {
+    expect(1).to.be.deep.equal(add(undefined, 1));
+  });
+
+  it('must return sum of null and positive numbers', () => {
+    expect(1).to.be.deep.equal(add(null, 1));
+  });
 });
 
 describe('isDate', () => {
@@ -53,22 +54,30 @@ describe('isDate', () => {
 });
 
 describe('isEmpty', () => {
-  describe('Check if empty for null', function () {
     it('must return true if null', () => {
       expect(true).to.be.equal(isEmpty(null));
     });
-  });
 
-  describe('Check if empty for string', function () {
+    it('must return true if value is number', () => {
+      expect(true).to.be.equal(isEmpty(3));
+    });
+
     it('must return false if not null', () => {
       expect(false).to.be.equal(isEmpty('abc'));
     });
-  });
-  describe('Check if empty for boolean value', function () {
+
+    it('must return false if value is object', () => {
+      expect(false).to.be.equal(isEmpty({'key': 12}));
+    });
+
+    it('must return false if value is an array', () => {
+      expect(false).to.be.equal(isEmpty([1,2,3]));
+    });
+
     it('must return true if value is boolean', () => {
       expect(true).to.be.equal(isEmpty(true));
     });
-  });
+
 });
 
 // describe('filter', () => {
