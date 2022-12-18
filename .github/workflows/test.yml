@@ -16,10 +16,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: npm ci
-      - name: make test-coverage  
-        run: make test-coverage
+      
       - name: test
         run: npm run test
+      - name: make test-coverage  
+        run: make test-coverage
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
