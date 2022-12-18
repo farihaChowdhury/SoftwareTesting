@@ -6,8 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "nyc --reporter=lcov --reporter=text mocha --exit --timeout 10000 --recursive unit_tests/*.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "test": "mocha --exit --timeout 10000 --recursive unit_tests/*.js",
+    "coverage": "c8 --reporter html --reporter text  --exclude 'components/*.js' --exclude 'components/.internal'  mocha 'unit_tests/*.js'"
+  },
+  "nyc": {
+    "exclude": []
   },
   "keywords": [],
   "author": "",
