@@ -1,19 +1,184 @@
 import { expect } from 'chai';
 import add from '../components/add.js';
-// import countBy from '../components/countBy.js';
-// import eq from '../components/eq.js';
-// import filter from '../components/filter.js';
-// import isDate from '../components/isDate.js';
-// import isEmpty from '../components/isEmpty.js';
-// import toFinite from '../components/toFinite.js';
-// import toInteger from '../components/toInteger.js';
-// import toNumber from '../components/toNumber.js';
-// import toString from '../components/toString.js';
+import countBy from '../components/countBy.js';
+import eq from '../components/eq.js';
+import filter from '../components/filter.js';
+import isDate from '../components/isDate.js';
+import isEmpty from '../components/isEmpty.js';
+import toFinite from '../components/toFinite.js';
+import toInteger from '../components/toInteger.js';
+import toNumber from '../components/toNumber.js';
+import toString from '../components/toString.js';
 
 describe('Add', () => {
   describe('Add numbers', function () {
     it('must return sum of two numbers', () => {
       expect(4).to.be.deep.equal(add(3, 1));
+    });
+  });
+});
+
+describe('toInteger', () => {
+  describe('Convert to integer', function () {
+    it('must return integer', () => {
+      expect(0).to.be.deep.equal(toInteger(0.3));
+    });
+  });
+  describe('Convert to integer', function () {
+    it('must return integer', () => {
+      expect(4).to.be.deep.equal(toInteger(4.2));
+    });
+  });
+  describe('Convert to integer', function () {
+    it('must return integer', () => {
+      expect(2).to.be.deep.equal(toInteger(2.7));
+    });
+  });
+  describe('Convert to integer', function () {
+    it('must return integer', () => {
+      expect(2).to.be.deep.equal(toInteger('2.4'));
+    });
+  });
+  describe('Convert to integer', function () {
+    it('must return integer', () => {
+      expect(0).to.be.deep.equal(toInteger(false));
+    });
+  });
+  describe('Convert to integer', function () {
+    it('must return integer', () => {
+      expect(0).to.be.deep.equal(toInteger(null));
+    });
+  });
+});
+
+describe('toString', () => {
+  describe('Convert to string', function () {
+    it('must return string', () => {
+      expect('3').to.be.deep.equal(toString(3));
+    });
+  });
+  describe('Convert to string', function () {
+    it('must return string', () => {
+      expect('4.2').to.be.deep.equal(toString(4.2));
+    });
+  });
+  describe('Convert to string', function () {
+    it('must return string', () => {
+      expect('null').to.be.deep.equal(toString(null));
+    });
+  });
+  describe('Convert to string', function () {
+    it('must return string', () => {
+      expect('2.4').to.be.deep.equal(toString('2.4'));
+    });
+  });
+  describe('Convert to string', function () {
+    it('must return string', () => {
+      expect('false').to.be.deep.equal(toString(false));
+    });
+  });
+});
+
+describe('toFinite', () => {
+  describe('Convert to finite number', function () {
+    it('must return finite number', () => {
+      expect(0).to.be.deep.equal(toFinite(0));
+    });
+  });
+  describe('Convert to finite number', function () {
+    it('must return finite number', () => {
+      expect(5.2).to.be.deep.equal(toFinite(5.2));
+    });
+  });
+  describe('Convert to finite number', function () {
+    it('must return finite number', () => {
+      expect(2.4).to.be.deep.equal(toFinite('2.4'));
+    });
+  });
+  describe('Convert to finite number', function () {
+    it('must return finite number', () => {
+      expect(1).to.be.deep.equal(toFinite(true));
+    });
+  });
+  describe('Convert to finite number', function () {
+    it('must return finite number', () => {
+      expect(0).to.be.deep.equal(toFinite(undefined));
+    });
+  });
+});
+
+describe('toNumber', () => {
+  describe('Convert to number', function () {
+    it('must return number', () => {
+      expect(1).to.be.deep.equal(toNumber(1));
+    });
+  });
+  describe('Convert to number', function () {
+    it('must return number', () => {
+      expect(3.2).to.be.deep.equal(toNumber(3.2));
+    });
+  });
+  describe('Convert to number', function () {
+    it('must return number', () => {
+      expect(4.1).to.be.deep.equal(toNumber('4.1'));
+    });
+  });
+  describe('Convert to number', function () {
+    it('must return number', () => {
+      expect(1).to.be.deep.equal(toNumber(true));
+    });
+  });
+  describe('Convert to number', function () {
+    it('must return number', () => {
+      expect(0).to.be.deep.equal(toNumber(0));
+    });
+  });
+  describe('Convert to number', function () {
+    it('must return number', () => {
+      expect(NaN).to.be.deep.equal(toNumber(undefined));
+    });
+  });
+});
+
+describe('eq', () => {
+  describe('Checks if both values are equal', function () {
+    it('must return true', () => {
+      expect(true).to.be.deep.equal(eq(5, 5));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return false', () => {
+      expect(false).to.be.deep.equal(eq(3.1, 3));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return false', () => {
+      expect(false).to.be.deep.equal(eq(-6, 6));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return true', () => {
+      expect(true).to.be.deep.equal(eq(4, '4'));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return false', () => {
+      expect(false).to.be.deep.equal(eq(null, NaN));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return false', () => {
+      expect(false).to.be.deep.equal(eq(undefined, 2));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return false', () => {
+      expect(false).to.be.deep.equal(eq(1, null));
+    });
+  });
+  describe('Checks if both values are equal', function () {
+    it('must return true', () => {
+      expect(true).to.be.deep.equal(eq(undefined, undefined));
     });
   });
 });
