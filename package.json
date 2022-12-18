@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --exit --timeout 10000 --recursive test/own/*.js"
+    "test": "mocha --exit --timeout 10000 --recursive unit_tests/*.js"
   },
   "keywords": [],
   "author": "",
