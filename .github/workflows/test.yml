@@ -14,8 +14,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm ci
+      - name: npm install, make test-coverage
+      run: |
+        npm ci
+        npm install
+        make test-coverage
       - name: test
         run: npm run test
       - name: Coveralls
